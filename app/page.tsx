@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { topicPages } from "@/data/navigation";
 
 export default function Home() {
   return (
@@ -16,12 +17,15 @@ export default function Home() {
         Golek Howo — Website Budaya Jawa: Wayang, Gamelan, Batik & Kuliner
       </p>
       <nav className="mt-10 flex flex-wrap items-center justify-center gap-4">
-        <Link
-          href="/batik"
-          className="inline-flex items-center justify-center rounded-lg bg-maroon px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-maroon-dark"
-        >
-          Batik
-        </Link>
+        {topicPages.map((topic) => (
+          <Link
+            key={topic.slug}
+            href={topic.href}
+            className="inline-flex items-center justify-center rounded-lg bg-maroon px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-maroon-dark"
+          >
+            {topic.label}
+          </Link>
+        ))}
       </nav>
     </main>
   );

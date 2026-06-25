@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
-import HeroSection from "@/src/sections/batik/hero-section/HeroSection";
+import BatikHeroSection from "@/components/batik/BatikHeroSection";
+import { topicPageMetadata } from "@/data/pages";
 
-export const metadata: Metadata = {
-  title: "Batik Jawa — Saka Jawa",
-  description:
-    "Jelajahi keindahan dan filosofi batik Jawa. Motif, sejarah, dan warisan budaya leluhur yang tak ternilai.",
-};
+export const metadata: Metadata = topicPageMetadata.batik;
 
 export default function BatikPage() {
   return (
     <main>
-      <HeroSection />
-      {/* Section berikutnya akan ditambahkan di sini */}
+      <BatikHeroSection />
     </main>
   );
 }

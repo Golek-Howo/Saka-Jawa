@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
-import { batikHeroContent } from "./hero-content";
+import { batikHeroContent } from "./batik-hero-content";
 
-export default function HeroSection() {
+export default function BatikHeroSection() {
   const { badge, headline, subheadline, description, actions, image, dots } =
     batikHeroContent;
 
