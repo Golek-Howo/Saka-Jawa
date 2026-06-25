@@ -2,6 +2,7 @@
 
 > **Proyek**: Saka Jawa / Golek Howo — Website Budaya Jawa (Wayang & Gamelan)
 > **Font Utama**: League Spartan (Google Fonts)
+> **Styling**: Tailwind CSS 4 (utility classes di `className`)
 > **Versi**: 1.0.0
 > **Tanggal**: 23 Juni 2026
 
@@ -20,7 +21,8 @@
 9. [Imagery & Ilustrasi](#9-imagery--ilustrasi)
 10. [Animasi & Interaksi](#10-animasi--interaksi)
 11. [Responsivitas](#11-responsivitas)
-12. [Aturan Implementasi](#12-aturan-implementasi)
+12. [Styling dengan Tailwind CSS](#12-styling-dengan-tailwind-css)
+13. [Aturan Implementasi](#13-aturan-implementasi)
 
 ---
 
@@ -848,39 +850,92 @@ Beberapa section menggunakan layout asimetris dengan ilustrasi wayang di sisi:
 
 ---
 
-## 12. Aturan Implementasi
+## 12. Styling dengan Tailwind CSS
+
+Proyek Saka Jawa menggunakan **Tailwind CSS 4** sebagai satu-satunya cara menulis style di komponen. Semua tampilan visual diterapkan lewat **utility classes di atribut `className`** — bukan file CSS terpisah per komponen.
+
+### Prinsip
+
+| # | Prinsip | Penjelasan |
+|---|---------|------------|
+| 1 | **Utility-first** | Layout, warna, spacing, tipografi, dan responsivitas ditulis langsung di `className` |
+| 2 | **Token terpusat** | Warna, font, dan animasi kustom didefinisikan di `app/globals.css` (`:root` + `@theme inline`) lalu dipakai sebagai class Tailwind (`bg-maroon`, `text-gold-dark`, `animate-fade-in-up`, dll.) |
+| 3 | **Tanpa CSS per komponen** | **JANGAN** buat file `.css`, `.module.css`, atau stylesheet vanilla terpisah untuk section/komponen |
+| 4 | **Responsif di className** | Breakpoint (`sm:`, `md:`, `lg:`, `xl:`) ditulis bersama utility class, bukan di media query terpisah |
+
+### Pemetaan Token → Tailwind Class
+
+| Token CSS (`globals.css`) | Contoh Tailwind Class |
+|---------------------------|------------------------|
+| `--color-maroon` | `bg-maroon`, `text-maroon`, `border-maroon` |
+| `--color-gold` | `bg-gold`, `text-gold` |
+| `--color-gold-dark` | `text-gold-dark` |
+| `--color-gray-600` | `text-gray-600` |
+| `--container-lg` | `max-w-[var(--container-lg)]` |
+| `--font-league-spartan` | `font-sans` (via `@theme`) |
+
+### Contoh Implementasi Komponen
+
+```tsx
+// ✅ BENAR — semua style di className
+<section className="relative flex min-h-screen items-center bg-white px-5 py-12 lg:px-16 lg:py-20">
+  <h1 className="text-[2.25rem] font-bold text-black lg:text-[3.5rem]">Judul</h1>
+  <button className="rounded-lg bg-maroon px-8 py-3.5 text-sm font-semibold text-white hover:bg-maroon-dark">
+    CTA
+  </button>
+</section>
+
+// ❌ SALAH — jangan import CSS terpisah
+import "./HeroSection.css";
+```
+
+### Pengecualian yang Diizinkan
+
+Hanya `app/globals.css` yang boleh berisi:
+- `@import "tailwindcss"`
+- CSS custom properties (`:root`)
+- Integrasi `@theme inline` untuk token desain
+- Keyframe animasi global yang diregistrasi ke Tailwind (`@keyframes fade-in-up`, dll.)
+- Reset/base styles global (`body`, `html`)
+
+---
+
+## 13. Aturan Implementasi
 
 ### DO ✅
 
 | # | Aturan |
 |---|--------|
-| 1 | Selalu gunakan CSS custom properties (variabel) untuk warna, spacing, dan font size |
-| 2 | Gunakan `League Spartan` sebagai satu-satunya font |
-| 3 | Terapkan alternating section pattern (terang-gelap) secara konsisten |
-| 4 | Gunakan ornamen tradisional (wave border, batik pattern) sebagai section divider |
-| 5 | Semua gambar harus punya `alt` text deskriptif |
-| 6 | Semua interactive element harus punya hover state |
-| 7 | Gunakan semantic HTML (`<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`) |
-| 8 | Heading hierarchy harus benar: 1 `<h1>` per halaman, lalu `<h2>`, `<h3>`, dst. |
-| 9 | Pastikan kontras warna memenuhi WCAG AA minimal |
-| 10 | Gunakan `border-radius: 6px–12px` secara konsisten (tidak ada sharp corner kecuali ornamen) |
-| 11 | Gunakan scroll animation (fade-in) untuk setiap section saat pertama kali muncul |
-| 12 | Pastikan setiap halaman memiliki hero section dengan ornamen wave di bawahnya |
+| 1 | Gunakan **Tailwind CSS 4** utility classes di `className` untuk semua style komponen |
+| 2 | Warna, spacing, dan tipografi HARUS memakai token dari `globals.css` — gunakan class Tailwind (`bg-maroon`) atau arbitrary value dengan variabel (`max-w-[var(--container-lg)]`) |
+| 3 | Gunakan `League Spartan` sebagai satu-satunya font (`font-sans` via `@theme`) |
+| 4 | Terapkan alternating section pattern (terang-gelap) secara konsisten |
+| 5 | Gunakan ornamen tradisional (wave border, batik pattern) sebagai section divider |
+| 6 | Semua gambar harus punya `alt` text deskriptif |
+| 7 | Semua interactive element harus punya hover state |
+| 8 | Gunakan semantic HTML (`<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`) |
+| 9 | Heading hierarchy harus benar: 1 `<h1>` per halaman, lalu `<h2>`, `<h3>`, dst. |
+| 10 | Pastikan kontras warna memenuhi WCAG AA minimal |
+| 11 | Gunakan `border-radius: 6px–12px` secara konsisten (tidak ada sharp corner kecuali ornamen) |
+| 12 | Gunakan scroll animation (fade-in) untuk setiap section saat pertama kali muncul |
+| 13 | Pastikan setiap halaman memiliki hero section dengan ornamen wave di bawahnya |
 
 ### DON'T ❌
 
 | # | Larangan |
 |---|----------|
 | 1 | **JANGAN** gunakan font selain League Spartan |
-| 2 | **JANGAN** gunakan warna di luar palette yang sudah ditentukan (kecuali untuk gambar/foto) |
-| 3 | **JANGAN** buat button dengan border-radius `>= 50px` (pill shape) — gunakan `6px` |
-| 4 | **JANGAN** taruh 2 section background gelap berturut-turut tanpa section terang di antaranya |
-| 5 | **JANGAN** gunakan flat/plain section tanpa elemen dekoratif minimal (heading underline, ikon) |
-| 6 | **JANGAN** gunakan gambar tanpa treatment (overlay, border-radius, shadow) |
-| 7 | **JANGAN** buat teks lebih dari 75 karakter per baris (readability) |
-| 8 | **JANGAN** gunakan pure black (`#000000`) sebagai background section — gunakan `#4E0B11` |
-| 9 | **JANGAN** gunakan animasi yang blocking atau mengganggu scroll |
-| 10 | **JANGAN** gunakan gradient warna yang tidak ada di palette |
+| 2 | **JANGAN** buat file CSS terpisah (`.css`, `.module.css`) untuk komponen atau section — gunakan Tailwind di `className` |
+| 3 | **JANGAN** gunakan warna di luar palette yang sudah ditentukan (kecuali untuk gambar/foto) |
+| 4 | **JANGAN** buat button dengan border-radius `>= 50px` (pill shape) — gunakan `6px` |
+| 5 | **JANGAN** taruh 2 section background gelap berturut-turut tanpa section terang di antaranya |
+| 6 | **JANGAN** gunakan flat/plain section tanpa elemen dekoratif minimal (heading underline, ikon) |
+| 7 | **JANGAN** gunakan gambar tanpa treatment (overlay, border-radius, shadow) |
+| 8 | **JANGAN** buat teks lebih dari 75 karakter per baris (readability) |
+| 9 | **JANGAN** gunakan pure black (`#000000`) sebagai background section — gunakan `#4E0B11` |
+| 10 | **JANGAN** gunakan animasi yang blocking atau mengganggu scroll |
+| 11 | **JANGAN** gunakan gradient warna yang tidak ada di palette |
+| 12 | **JANGAN** hardcode warna hex di `className` jika token palette sudah tersedia |
 
 ### CSS Variables Template
 
@@ -959,8 +1014,10 @@ Beberapa section menggunakan layout asimetris dengan ilustrasi wayang di sisi:
 
 ### Checklist Sebelum Deploy
 
-- [ ] Semua teks menggunakan `font-family: var(--font-primary)`
-- [ ] Semua warna menggunakan CSS variables dari palette
+- [ ] Semua style komponen ditulis dengan Tailwind utility classes di `className`
+- [ ] Tidak ada file `.css` terpisah per komponen/section
+- [ ] Semua teks menggunakan `font-sans` (League Spartan)
+- [ ] Semua warna menggunakan token palette via class Tailwind atau CSS variables
 - [ ] Hero section memiliki ornamen wave border di bawahnya
 - [ ] Section bergantian terang-gelap dengan transisi visual
 - [ ] Semua card memiliki hover effect

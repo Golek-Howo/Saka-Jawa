@@ -109,7 +109,7 @@ Saka Jawa adalah platform web edukatif yang mengangkat dan melestarikan kebudaya
 sakajawa/
 ├── app/
 │   ├── layout.tsx                    # Root layout (font, metadata global)
-│   ├── globals.css                   # CSS variables, base styles
+│   ├── globals.css                   # Tailwind import, CSS variables, @theme tokens
 │   ├── page.tsx                      # Beranda — compose sections
 │   ├── wayang/
 │   │   └── page.tsx                  # Wayang — compose sections
@@ -994,12 +994,13 @@ export default function WayangPage() {
 
 | # | Aturan |
 |---|--------|
-| 1 | Gunakan **Tailwind CSS 4** sebagai utility framework utama |
-| 2 | Warna HARUS menggunakan CSS custom properties yang didefinisikan di `globals.css` sesuai `design.md` |
-| 3 | **JANGAN** hardcode warna hex di className — gunakan token: `bg-[var(--color-maroon)]` atau custom class |
-| 4 | Komponen-komponen kompleks boleh punya CSS module sendiri jika Tailwind terlalu verbose |
-| 5 | Semua transisi/animasi menggunakan token dari `design.md` |
-| 6 | Font HARUS League Spartan — setup di `layout.tsx` |
+| 1 | Gunakan **Tailwind CSS 4** sebagai satu-satunya cara menulis style di komponen — semua utility classes di atribut `className` |
+| 2 | **JANGAN** buat file CSS terpisah (`.css`, `.module.css`, stylesheet vanilla) untuk komponen atau section |
+| 3 | Token desain (warna, font, animasi) didefinisikan di `app/globals.css` (`:root` + `@theme inline`) sesuai `design.md` |
+| 4 | Warna HARUS memakai token Tailwind (`bg-maroon`, `text-gold`) atau arbitrary value dengan variabel CSS (`bg-[var(--color-maroon)]`) — **JANGAN** hardcode hex di `className` |
+| 5 | Responsivitas ditulis dengan breakpoint Tailwind (`sm:`, `md:`, `lg:`, `xl:`) di `className`, bukan media query terpisah |
+| 6 | Animasi global (mis. `fade-in-up`, `float`) diregistrasi di `globals.css` lalu dipakai sebagai `animate-*` di komponen |
+| 7 | Font HARUS League Spartan — setup di `layout.tsx`, dipakai via `font-sans` |
 
 ### 11.5 Aturan Data & Content
 

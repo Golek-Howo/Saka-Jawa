@@ -1,26 +1,139 @@
 @import "tailwindcss";
 
+/* ========================================
+   SAKA JAWA — Design System Tokens
+   ======================================== */
+
 :root {
+  /* ---- Color Palette: Primer ---- */
+  --color-maroon: #4E0B11;
+  --color-gold: #FFC832;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  /* ---- Color Palette: Turunan ---- */
+  --color-maroon-dark: #3A0810;
+  --color-maroon-light: #6B1520;
+  --color-gold-dark: #E0B020;
+  --color-gold-light: #FFD966;
+  --color-cream: #FFF8E7;
+  --color-warm-gray: #F5F0EB;
+  --color-gray-100: #F7F7F7;
+  --color-gray-300: #D4D4D4;
+  --color-gray-600: #6B6B6B;
+  --color-gray-900: #1A1A1A;
+
+  /* ---- Typography Scale ---- */
+  --text-display: 3.5rem;
+  --text-h1: 2.625rem;
+  --text-h2: 2rem;
+  --text-h3: 1.5rem;
+  --text-h4: 1.25rem;
+  --text-body-lg: 1.125rem;
+  --text-body: 1rem;
+  --text-body-sm: 0.875rem;
+  --text-caption: 0.75rem;
+  --text-overline: 0.75rem;
+  --text-button: 0.875rem;
+  --text-nav: 0.875rem;
+
+  /* ---- Spacing Scale (8px Base) ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ---- Container Widths ---- */
+  --container-sm: 640px;
+  --container-md: 960px;
+  --container-lg: 1200px;
+  --container-full: 100%;
+
+  /* ---- Background & Foreground ---- */
   --background: #ffffff;
   --foreground: #171717;
 }
 
+/* ---- Tailwind v4 Theme Integration ---- */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-maroon: var(--color-maroon);
+  --color-maroon-dark: var(--color-maroon-dark);
+  --color-maroon-light: var(--color-maroon-light);
+  --color-gold: var(--color-gold);
+  --color-gold-dark: var(--color-gold-dark);
+  --color-gold-light: var(--color-gold-light);
+  --color-cream: var(--color-cream);
+  --color-warm-gray: var(--color-warm-gray);
+  --color-gray-100: var(--color-gray-100);
+  --color-gray-300: var(--color-gray-300);
+  --color-gray-600: var(--color-gray-600);
+  --color-gray-900: var(--color-gray-900);
+  --font-sans: var(--font-league-spartan), sans-serif;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out both;
+  --animate-scale-in: scale-in 0.8s ease-out both;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-reverse: float 8s ease-in-out infinite reverse;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+/* ---- Global Reset & Base ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-league-spartan), sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
