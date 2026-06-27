@@ -60,6 +60,17 @@
   /* ---- Background & Foreground ---- */
   --background: #ffffff;
   --foreground: #171717;
+
+  /* ---- Semantic Tokens ---- */
+  --color-primary: #5B0917; /* maroon CTA */
+  --color-accent: #FFC832; /* gold accent */
+  --color-text: #181318; /* headings */
+  --color-muted: #4A332B; /* body */
+  --color-panel: #F8EFE0; /* panel background */
+  --bg-gradient-start: #FBEED5;
+  --bg-gradient-end: #FFF8EB;
+  --color-border: #4E0B11;
+  --color-card-bg: rgba(255,255,255,0.08);
 }
 
 /* ---- Tailwind v4 Theme Integration ---- */
