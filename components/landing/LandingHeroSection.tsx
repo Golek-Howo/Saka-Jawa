@@ -67,6 +67,7 @@ export default function LandingHeroSection() {
   const mountainRef = useRef<HTMLDivElement>(null);
   const gamelanRef = useRef<HTMLDivElement>(null);
   const kelirRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let frame = 0;
@@ -77,10 +78,8 @@ export default function LandingHeroSection() {
       if (!hero) return;
 
       const rect = hero.getBoundingClientRect();
-      const progress = Math.min(
-        Math.max(-rect.top / Math.max(rect.height, 1), 0),
-        1,
-      );
+      const scrollY = Math.max(0, -rect.top);
+      const progress = Math.min(scrollY / Math.max(rect.height, 1), 1);
 
       if (mountainRef.current) {
         mountainRef.current.style.transform = `translate3d(0, ${progress * -34}px, 0) scale(${
@@ -89,15 +88,15 @@ export default function LandingHeroSection() {
       }
 
       if (gamelanRef.current) {
-        gamelanRef.current.style.transform = `translate3d(${progress * -30}px, ${
-          progress * -74
-        }px, 0) scale(${1 + progress * 0.04})`;
+        gamelanRef.current.style.transform = `translate3d(0, ${scrollY}px, 0)`;
       }
 
       if (kelirRef.current) {
-        kelirRef.current.style.transform = `translate3d(${progress * 28}px, ${
-          progress * -86
-        }px, 0) scale(${1 + progress * 0.045})`;
+        kelirRef.current.style.transform = `translate3d(0, ${scrollY}px, 0)`;
+      }
+
+      if (textRef.current) {
+        textRef.current.style.transform = `translate3d(0, ${scrollY}px, 0)`;
       }
     };
 
@@ -124,10 +123,10 @@ export default function LandingHeroSection() {
   return (
     <section
       ref={heroRef}
-      className="relative isolate h-[92svh] min-h-[560px] overflow-hidden bg-[#d8a942] text-white"
+      className="relative isolate h-[100svh] min-h-[560px] overflow-hidden bg-[#d8a942] text-white"
       aria-labelledby="landing-hero-title"
     >
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-20">
         <LayerImage src={heroLayers.base} eager />
       </div>
 
@@ -139,17 +138,17 @@ export default function LandingHeroSection() {
         </div>
       </div>
 
-      <div className="absolute inset-0 z-20">
+      <div className="absolute inset-0 z-50">
         <LayerImage src={heroLayers.trees} eager />
       </div>
 
-      <div className="absolute bottom-[4%] left-[-15%] z-30 w-[76vw] max-w-[520px] sm:left-[1%] sm:w-[44vw] lg:left-[4%] lg:w-[40vw]">
+      <div className="absolute bottom-[-1%] left-[-15%] z-40 w-[76vw] max-w-[520px] sm:left-[1%] sm:w-[44vw] lg:left-[4%] lg:w-[40vw]">
         <div ref={gamelanRef} className="will-change-transform">
           <ObjectImage src={heroLayers.gamelan} />
         </div>
       </div>
 
-      <div className="absolute right-[-23%] bottom-[2%] z-40 w-[82vw] max-w-[500px] sm:right-[-5%] sm:w-[43vw] lg:right-[-1%] lg:w-[36vw]">
+      <div className="absolute right-[-23%] bottom-[2%] z-30 w-[74vw] max-w-[460px] sm:right-[-5%] sm:w-[38vw] lg:right-[-1%] lg:w-[32vw]">
         <div ref={kelirRef} className="will-change-transform">
           <ObjectImage src={heroLayers.kelir} />
         </div>
@@ -195,17 +194,19 @@ export default function LandingHeroSection() {
         </nav>
       </header>
 
-      <div className="absolute left-1/2 top-[43%] z-50 w-[min(92vw,820px)] -translate-x-1/2 -translate-y-1/2 text-center">
-        <h1
-          id="landing-hero-title"
-          className="text-[clamp(2.25rem,4.7vw,4.25rem)] leading-[0.92] font-black text-[#5a1020] drop-shadow-[0_3px_0_rgba(255,218,133,0.2)]"
-        >
-          Jelajahi Jiwa Jawa,
-          <br />
-          Rasakan Warisan
-          <br />
-          Yang Hidup
-        </h1>
+      <div className="absolute left-1/2 top-[43%] z-0 w-[min(92vw,820px)] -translate-x-1/2 -translate-y-1/2 text-center">
+        <div ref={textRef} className="will-change-transform">
+          <h1
+            id="landing-hero-title"
+            className="text-[clamp(2.25rem,4.7vw,4.25rem)] leading-[0.92] font-black text-[#5a1020] drop-shadow-[0_3px_0_rgba(255,218,133,0.2)]"
+          >
+            Jelajahi Jiwa Jawa,
+            <br />
+            Rasakan Warisan
+            <br />
+            Yang Hidup
+          </h1>
+        </div>
       </div>
 
       <Link
