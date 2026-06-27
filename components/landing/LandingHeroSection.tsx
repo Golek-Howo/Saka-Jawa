@@ -82,17 +82,17 @@ export default function LandingHeroSection() {
       const progress = Math.min(scrollY / Math.max(rect.height, 1), 1);
 
       if (mountainRef.current) {
-        mountainRef.current.style.transform = `translate3d(0, ${progress * -34}px, 0) scale(${
-          1 + progress * 0.025
+        mountainRef.current.style.transform = `translate3d(0, ${scrollY * -0.120}px, 0) scale(${
+          1 + progress * 1
         })`;
       }
 
       if (gamelanRef.current) {
-        gamelanRef.current.style.transform = `translate3d(0, ${scrollY}px, 0)`;
+        gamelanRef.current.style.transform = `translate3d(0, ${scrollY * 0.3}px, 0)`;
       }
 
       if (kelirRef.current) {
-        kelirRef.current.style.transform = `translate3d(0, ${scrollY}px, 0)`;
+        kelirRef.current.style.transform = `translate3d(0, ${scrollY * 0.3}px, 0)`;
       }
 
       if (textRef.current) {
@@ -130,10 +130,10 @@ export default function LandingHeroSection() {
         <LayerImage src={heroLayers.base} eager />
       </div>
 
-      <div className="absolute inset-0 z-5 bg-[radial-gradient(circle_at_50%_42%,rgba(255,244,211,0.75)_0%,rgba(236,197,103,0.34)_28%,rgba(216,169,66,0)_56%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(255,244,211,0.75)_0%,rgba(236,197,103,0.34)_28%,rgba(216,169,66,0)_56%)]" />
 
-      <div className="absolute left-1/2 bottom-[28%] z-10 w-[30vw] max-w-[320px] min-w-[160px] -translate-x-1/2 sm:bottom-[29%] sm:w-[22vw]">
-        <div ref={mountainRef} className="will-change-transform">
+      <div className="absolute left-1/2 bottom-[15%] z-10 w-[45vw] max-w-[480px] min-w-[240px] -translate-x-1/2 sm:bottom-[15%] sm:w-[35vw] lg:w-[90vw]">
+        <div ref={mountainRef} className="will-change-transform origin-bottom">
           <ObjectImage src={heroLayers.mountain} />
         </div>
       </div>
@@ -148,7 +148,7 @@ export default function LandingHeroSection() {
         </div>
       </div>
 
-      <div className="absolute right-[-23%] bottom-[2%] z-30 w-[74vw] max-w-[460px] sm:right-[-5%] sm:w-[38vw] lg:right-[-1%] lg:w-[32vw]">
+      <div className="absolute right-[-23%] bottom-[2%] z-30 w-[74vw] max-w-[460px] sm:right-[-5%] sm:w-[38vw] lg:right-[4%] lg:w-[32vw]">
         <div ref={kelirRef} className="will-change-transform">
           <ObjectImage src={heroLayers.kelir} />
         </div>
