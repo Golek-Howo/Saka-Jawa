@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { League_Spartan } from "next/font/google";
 import "./globals.css";
+import Footer from "../components/shared/Footer";
 
 const leagueSpartan = League_Spartan({
   variable: "--font-league-spartan",
@@ -22,7 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className={`${leagueSpartan.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
