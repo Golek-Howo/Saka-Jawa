@@ -25,6 +25,7 @@ export interface HeroContent {
     count: number;
     activeIndex: number;
   };
+  imagePosition?: "left" | "right";
   bottomWaveSrc?: string; // Ditambahkan agar gambar gelombang bawah bisa disesuaikan
   customImageRender?: () => React.ReactNode;
 }
@@ -49,13 +50,17 @@ export default function HeroSection({ content }: HeroSectionProps) {
       {/* Main Grid: Full width to allow flush-left image */}
       <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-0">
         
-        {/* Column 1: Image (Flush left) */}
-        <div className="flex flex-col items-start w-full gap-5 order-1 lg:gap-6">
+        {/* Column 1: Image */}
+        <div className={`flex flex-col items-start w-full gap-5 lg:gap-6 ${content.imagePosition === 'right' ? 'order-1 lg:order-2 lg:items-end' : 'order-1'}`}>
           {content.customImageRender ? (
             content.customImageRender()
           ) : (
             <div 
-              className="relative w-[92%] sm:w-[90%] md:w-[85%] lg:w-[95%] xl:w-[92%] h-[240px] sm:h-[320px] md:h-[380px] lg:h-[420px] xl:h-[460px] overflow-hidden rounded-r-full rounded-l-none shadow-[0_12px_40px_rgba(78,11,17,0.08),0_4px_12px_rgba(0,0,0,0.04)]"
+              className={`relative w-[92%] sm:w-[90%] md:w-[85%] lg:w-[95%] xl:w-[92%] h-[240px] sm:h-[320px] md:h-[380px] lg:h-[420px] xl:h-[460px] overflow-hidden shadow-[0_12px_40px_rgba(78,11,17,0.08),0_4px_12px_rgba(0,0,0,0.04)] ${
+                content.imagePosition === 'right' 
+                  ? 'rounded-l-full rounded-r-none' 
+                  : 'rounded-r-full rounded-l-none'
+              }`}
             >
               <Image
                 src={image.src}
@@ -88,7 +93,7 @@ export default function HeroSection({ content }: HeroSectionProps) {
         </div>
 
         {/* Column 2: Text Content */}
-        <div className="order-2 w-full px-6 md:px-12 lg:px-0 lg:pr-12 xl:pr-24">
+        <div className={`w-full px-6 md:px-12 lg:px-0 ${content.imagePosition === 'right' ? 'order-2 lg:order-1 lg:pl-12 xl:pl-24' : 'order-2 lg:pr-12 xl:pr-24'}`}>
           <div className="mx-auto flex max-w-[540px] flex-col items-center text-center lg:mx-0 lg:items-start lg:text-left">
             
             {/* Badge */}

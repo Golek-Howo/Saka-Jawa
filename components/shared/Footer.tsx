@@ -8,11 +8,11 @@ export default function Footer() {
       {/* Top Content */}
       <div className="relative z-10 mx-auto w-full max-w-[var(--container-lg)] px-6 md:px-12 lg:px-24">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
-          
+
           {/* Brand Column */}
           <div className="md:col-span-12 lg:col-span-5">
             <div className="flex items-center gap-3 mb-6">
-              <Image 
+              <Image
                 src="/Assets/Logo Utama.svg"
                 alt="SakaJawa Logo"
                 width={40}
@@ -61,7 +61,7 @@ export default function Footer() {
         </div>
 
         {/* The Landscape SVG */}
-        <Image 
+        <Image
           src="/Assets/Footer Assets.svg"
           alt="Footer Landscape"
           width={1920}

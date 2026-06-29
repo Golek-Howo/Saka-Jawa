@@ -12,55 +12,55 @@ export default function BatikMotifSection() {
       id: "solo",
       title: "Motif Solo",
       desc: "Batik keraton Solo memiliki ciri khas warna soga (cokelat keemasan) yang hangat, melambangkan kerendahan hati dan kesederhanaan.",
-      imageSrc: "https://placehold.co/400x300/D9D9D9/888888?text=Batik+Solo",
+      imageSrc: "/Assets/Gambar Batik/Batik Solo/Solo 1.avif",
     },
     {
       id: "jogja",
       title: "Motif Jogja",
       desc: "Batik Jogja dikenal dengan warna dasar putih bersih atau hitam tegas, mencerminkan ketegasan karakter, keberanian, dan kesucian jiwa.",
-      imageSrc: "https://placehold.co/400x300/D9D9D9/888888?text=Batik+Jogja",
+      imageSrc: "/Assets/Gambar Batik/Batik Jogja/Jogja 1.avif",
     },
     {
       id: "pekalongan",
       title: "Motif Pekalongan",
       desc: "Batik pesisiran kaya akan warna cerah dan motif flora fauna dinamis, melambangkan keterbukaan dan akulturasi budaya yang indah.",
-      imageSrc: "https://placehold.co/400x300/D9D9D9/888888?text=Batik+Pekalongan",
+      imageSrc: "/Assets/Gambar Batik/Batik Pekalongan/Pekalongan 1.avif",
     },
   ];
 
-  // Data galeri lengkap (5 gambar) agar layout grid galeri terisi penuh
-  const galleryImages = [
-    {
-      id: "solo",
-      title: "Batik Motif Solo",
-      description: "Batik keraton Solo memiliki ciri khas warna soga (cokelat keemasan) yang hangat. Warna ini melambangkan kerendahan hati, keanggunan, dan kesederhanaan yang membumi. Beberapa motif ikonik dari Solo antara lain Sidomukti, Parang Kusumo, dan Truntum yang masing-masing memuat doa dan filosofi mendalam bagi pemakainya.",
-      src: "https://placehold.co/800x600/D9D9D9/888888?text=Batik+Solo+Detail",
+  // Data galeri per kota
+  const galleryData: Record<string, typeof motifs[0] & { gallery: any[] }> = {
+    solo: {
+      ...motifs[0],
+      gallery: [
+        { id: "solo-1", src: "/Assets/Gambar Batik/Batik Solo/Solo 1.avif", title: "Batik Solo - Corak 1", description: motifs[0].desc },
+        { id: "solo-2", src: "/Assets/Gambar Batik/Batik Solo/Solo 2.avif", title: "Batik Solo - Corak 2", description: motifs[0].desc },
+        { id: "solo-3", src: "/Assets/Gambar Batik/Batik Solo/Solo 3.avif", title: "Batik Solo - Corak 3", description: motifs[0].desc },
+        { id: "solo-4", src: "/Assets/Gambar Batik/Batik Solo/Solo 4.avif", title: "Batik Solo - Corak 4", description: motifs[0].desc },
+        { id: "solo-5", src: "/Assets/Gambar Batik/Batik Solo/Solo 1.avif", title: "Batik Solo - Corak Utama", description: motifs[0].desc },
+      ],
     },
-    {
-      id: "jogja",
-      title: "Batik Motif Jogja",
-      description: "Batik Jogja sangat mudah dikenali melalui warna dasar putih bersih atau biru kehitaman yang tegas. Filosofinya mencerminkan ketegasan karakter, keberanian moral, dan kesucian jiwa yang murni. Berbeda dengan Solo, keraton Jogja memiliki aturan ketat mengenai 'Awisan Dalem' atau motif larangan yang hanya boleh dipakai Sultan.",
-      src: "https://placehold.co/800x600/D9D9D9/888888?text=Batik+Jogja+Detail",
+    jogja: {
+      ...motifs[1],
+      gallery: [
+        { id: "jogja-1", src: "/Assets/Gambar Batik/Batik Jogja/Jogja 1.avif", title: "Batik Jogja - Corak 1", description: motifs[1].desc },
+        { id: "jogja-2", src: "/Assets/Gambar Batik/Batik Jogja/Jogja 2.avif", title: "Batik Jogja - Corak 2", description: motifs[1].desc },
+        { id: "jogja-3", src: "/Assets/Gambar Batik/Batik Jogja/Jogja 3.avif", title: "Batik Jogja - Corak 3", description: motifs[1].desc },
+        { id: "jogja-4", src: "/Assets/Gambar Batik/Batik Jogja/Jogja 4.avif", title: "Batik Jogja - Corak 4", description: motifs[1].desc },
+        { id: "jogja-5", src: "/Assets/Gambar Batik/Batik Jogja/Jogja 1.avif", title: "Batik Jogja - Corak Utama", description: motifs[1].desc },
+      ],
     },
-    {
-      id: "pekalongan",
-      title: "Batik Motif Pekalongan",
-      description: "Sebagai daerah pesisir, batik Pekalongan menyerap pengaruh budaya asing (Tiongkok, Belanda, Arab, Jepang) menghasilkan warna-warni cerah yang berani dan ceria. Motif andalannya berupa flora dan fauna yang sangat dinamis, seperti motif Jlamprang dan Buketan, menyimbolkan keterbukaan dan adaptasi masyarakat pesisir.",
-      src: "https://placehold.co/800x600/D9D9D9/888888?text=Batik+Pekalongan+Detail",
+    pekalongan: {
+      ...motifs[2],
+      gallery: [
+        { id: "pekalongan-1", src: "/Assets/Gambar Batik/Batik Pekalongan/Pekalongan 1.avif", title: "Batik Pekalongan - Corak 1", description: motifs[2].desc },
+        { id: "pekalongan-2", src: "/Assets/Gambar Batik/Batik Pekalongan/Pekalongan 2.avif", title: "Batik Pekalongan - Corak 2", description: motifs[2].desc },
+        { id: "pekalongan-3", src: "/Assets/Gambar Batik/Batik Pekalongan/Pekalongan 3.avif", title: "Batik Pekalongan - Corak 3", description: motifs[2].desc },
+        { id: "pekalongan-4", src: "/Assets/Gambar Batik/Batik Pekalongan/Pekalongan 4.avif", title: "Batik Pekalongan - Corak 4", description: motifs[2].desc },
+        { id: "pekalongan-5", src: "/Assets/Gambar Batik/Batik Pekalongan/Pekalongan 1.avif", title: "Batik Pekalongan - Corak Utama", description: motifs[2].desc },
+      ],
     },
-    {
-      id: "cirebon",
-      title: "Batik Motif Cirebon",
-      description: "Batik Cirebon, dengan mahakarya Mega Mendung-nya, melambangkan konsep spiritual bahwa setiap manusia harus mampu meredam gejolak amarah dalam dirinya. Awan berlapis-lapis dengan gradasi warna tujuh tingkat melambangkan kebijaksanaan yang dalam.",
-      src: "https://placehold.co/800x600/D9D9D9/888888?text=Batik+Cirebon+Detail",
-    },
-    {
-      id: "lasem",
-      title: "Batik Motif Lasem",
-      description: "Batik Lasem, atau yang sering disebut sebagai 'Batik Tiga Negeri', merupakan simbol nyata perpaduan budaya Tionghoa dan Jawa. Warna khasnya adalah 'Abang Getih Pitik' (merah darah ayam) yang kuat dan sangat ikonik di pesisir utara Jawa.",
-      src: "https://placehold.co/800x600/D9D9D9/888888?text=Batik+Lasem+Detail",
-    },
-  ];
+  };
 
   return (
     <>
@@ -124,8 +124,8 @@ export default function BatikMotifSection() {
       {/* Galeri Modal Overlay */}
       {selectedMotifId && (
         <DetailGaleri 
-          initialImageId={selectedMotifId} 
-          images={galleryImages} 
+          initialImageId={`${selectedMotifId}-1`} 
+          images={galleryData[selectedMotifId]?.gallery || []} 
           onClose={() => setSelectedMotifId(null)} 
         />
       )}
