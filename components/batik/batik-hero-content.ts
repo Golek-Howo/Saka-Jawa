@@ -22,5 +22,4 @@ export const batikHeroContent: HeroContent = {
     count: 5,
     activeIndex: 1,
   },
-  bottomWaveSrc: "/Assets/Batik Sambungan.svg",
 };

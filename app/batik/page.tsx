@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import BatikHeroSection from "@/components/batik/BatikHeroSection";
 import BatikAboutSection from "@/components/batik/BatikAboutSection";
 import BatikMotifSection from "@/components/batik/BatikMotifSection";
+import BatikQuotesSection from "@/components/batik/BatikQuotesSection";
+import BatikCeritaSection from "@/components/batik/BatikCeritaSection";
 import { topicPageMetadata } from "@/data/pages";
 
 export const metadata: Metadata = topicPageMetadata.batik;
@@ -12,6 +14,8 @@ export default function BatikPage() {
       <BatikHeroSection />
       <BatikAboutSection />
       <BatikMotifSection />
+      <BatikQuotesSection />
+      <BatikCeritaSection />
     </main>
   );
 }
