@@ -16,6 +16,8 @@ export const metadata: Metadata = {
     "Saka Jawa / Golek Howo — Website Budaya Jawa: Wayang, Gamelan, Batik & Kuliner",
 };
 
+import SmoothScrolling from "../components/shared/SmoothScrolling";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,8 +26,10 @@ export default function RootLayout({
   return (
     <html lang="id" className={`${leagueSpartan.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <SmoothScrolling>
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </SmoothScrolling>
       </body>
     </html>
   );
