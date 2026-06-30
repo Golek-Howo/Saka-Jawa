@@ -1,4 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
+import GalleryModal from "@/components/shared/GalleryModal";
 
 const kulinerGallery = [
   { id: 1, title: "Nasi Liwet Solo", image: "/Assets/kulinerHeroAsset.avif" },
@@ -7,6 +11,14 @@ const kulinerGallery = [
 ];
 
 export default function KulinerGallerySection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const modalImages = kulinerGallery.map((g) => ({
+    id: g.id,
+    src: g.image,
+    alt: g.title,
+  }));
+
   return (
     <section className="bg-[#f9f1e4] py-20 px-6 md:px-12 lg:px-24">
       <div className="mx-auto w-full max-w-[var(--container-lg)]">
@@ -21,13 +33,13 @@ export default function KulinerGallerySection() {
             </p>
           </div>
           <div>
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 rounded-full border border-[#4e0b11] px-6 py-2.5 font-semibold text-[#4e0b11] transition-colors hover:bg-[#4e0b11] hover:text-[#f9f1e4]"
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="inline-flex items-center gap-2 rounded-full border border-[#4e0b11] px-6 py-2.5 font-semibold text-[#4e0b11] transition-colors hover:bg-[#4e0b11] hover:text-[#f9f1e4] cursor-pointer"
             >
               <span>Lihat Semua Galeri</span>
               <span>→</span>
-            </a>
+            </button>
           </div>
         </div>
 
@@ -51,6 +63,13 @@ export default function KulinerGallerySection() {
         </div>
 
       </div>
+
+      <GalleryModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        images={modalImages}
+        title="Galeri Kuliner"
+      />
     </section>
   );
 }
