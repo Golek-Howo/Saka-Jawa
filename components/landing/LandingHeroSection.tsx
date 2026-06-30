@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 
 const heroLayers = {
@@ -115,7 +114,7 @@ export default function LandingHeroSection() {
   return (
     <section
       ref={heroRef}
-      className="relative isolate h-[100svh] min-h-[560px] overflow-hidden bg-gradient-to-b from-white to-[#F9F1E4] text-white"
+      className="relative isolate h-[100svh] min-h-[560px] overflow-hidden bg-[#F9F1E4] text-white"
       aria-labelledby="landing-hero-title"
     >
       <div className="absolute inset-0 z-20">
@@ -152,7 +151,7 @@ export default function LandingHeroSection() {
         <div ref={textRef} className="will-change-transform">
           <h1
             id="landing-hero-title"
-            className="text-[clamp(2.25rem,4.7vw,4.25rem)] leading-[0.92] font-black text-[#5a1020] drop-shadow-[0_3px_0_rgba(255,218,133,0.2)]"
+            className="text-[clamp(2.25rem,4.7vw,4.25rem)] leading-[0.92] font-black text-[#512402] drop-shadow-[0_4px_0_#FFCA98]"
           >
             Jelajahi Jiwa Jawa,
             <br />
@@ -163,28 +162,7 @@ export default function LandingHeroSection() {
         </div>
       </div>
 
-      <Link
-        href="#abdi-dalem"
-        className="absolute right-[3.5%] bottom-[3.5%] z-60 flex items-end transition-transform duration-300 hover:-translate-y-1"
-      >
-        <span className="mb-3 rounded-full bg-[#ffc62e] px-6 py-2.5 text-center text-[0.72rem] leading-none font-bold text-[#3a0810] shadow-[0_10px_24px_rgba(80,38,9,0.22)] sm:text-sm">
-          Tanya Kepada
-          <span className="block text-[1.1rem] leading-none font-black sm:text-[1.45rem]">
-            ABDI DALEM
-          </span>
-        </span>
-        <span className="relative -ml-3 block h-[78px] w-[45px] sm:h-[104px] sm:w-[60px]">
-          <Image
-            src={heroLayers.chatbot}
-            alt=""
-            fill
-            sizes="64px"
-            loading="eager"
-            unoptimized
-            className="object-contain"
-          />
-        </span>
-      </Link>
+
     </section>
   );
 }

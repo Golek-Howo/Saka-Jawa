@@ -82,10 +82,9 @@ export default function LandingNavbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);  return (
     <>
-      {/* 1. Original Absolute Navbar (Stays at the top of the page in the Hero Section) */}
       <header className="absolute left-1/2 top-5 z-[100] w-full max-w-[1024px] -translate-x-1/2 px-5 sm:top-8 pointer-events-none">
         <nav
-          className="grid grid-cols-[1fr_auto_1fr] items-center gap-8 sm:gap-16 text-[0.8rem] font-bold text-white drop-shadow-[0_2px_8px_rgba(72,33,8,0.35)] sm:text-base pointer-events-auto"
+          className="grid grid-cols-[1fr_auto_1fr] items-center gap-8 sm:gap-16 text-[0.8rem] font-bold text-black sm:text-base pointer-events-auto"
           aria-label="Navigasi utama statis"
         >
           <NavContent />

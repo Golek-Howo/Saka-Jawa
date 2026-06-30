@@ -6,6 +6,7 @@ import LandingExploreSection from "@/components/landing/LandingExploreSection";
 import LandingQuotesSection from "@/components/landing/LandingQuotesSection";
 import LandingChatbotSection from "@/components/landing/LandingChatbotSection";
 import LandingCTASection from "@/components/landing/LandingCTASection";
+import LandingFloatingChatbot from "@/components/landing/LandingFloatingChatbot";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <LandingQuotesSection />
       <LandingChatbotSection />
       <LandingCTASection />
+      <LandingFloatingChatbot />
     </main>
   );
 }
