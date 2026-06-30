@@ -1,5 +1,3 @@
-import React from "react";
-import Image from "next/image";
 import { HeroContent } from "../shared/HeroSection";
 
 export const wayangHeroContent: HeroContent = {

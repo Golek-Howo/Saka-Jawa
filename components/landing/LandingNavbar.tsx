@@ -14,6 +14,43 @@ const navRight = [
   { label: "Tentang Kami", href: "#tentang-kami" },
 ];
 
+const NavContent = () => (
+  <>
+    <div className="flex min-w-0 flex-wrap items-center justify-end gap-x-6 gap-y-2 sm:gap-x-16">
+      {navLeft.map((item) => (
+        <Link key={item.label} href={item.href} className="transition-opacity hover:opacity-75">
+          {item.label}
+        </Link>
+      ))}
+    </div>
+
+    <Link
+      href="/"
+      aria-label="Saka Jawa"
+      className="relative block h-[38px] w-[34px] sm:h-[50px] sm:w-[44px]"
+    >
+      <Image
+        src="/Assets/Logo Utama.svg"
+        alt="Saka Jawa"
+        fill
+        sizes="64px"
+        loading="eager"
+        fetchPriority="high"
+        unoptimized
+        className="object-contain"
+      />
+    </Link>
+
+    <div className="flex min-w-0 flex-wrap items-center justify-start gap-x-6 gap-y-2 sm:gap-x-16">
+      {navRight.map((item) => (
+        <Link key={item.label} href={item.href} className="transition-opacity hover:opacity-75">
+          {item.label}
+        </Link>
+      ))}
+    </div>
+  </>
+);
+
 export default function LandingNavbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -43,46 +80,7 @@ export default function LandingNavbar() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
-
-  const NavContent = () => (
-    <>
-      <div className="flex min-w-0 flex-wrap items-center justify-end gap-x-6 gap-y-2 sm:gap-x-16">
-        {navLeft.map((item) => (
-          <Link key={item.label} href={item.href} className="transition-opacity hover:opacity-75">
-            {item.label}
-          </Link>
-        ))}
-      </div>
-
-      <Link
-        href="/"
-        aria-label="Saka Jawa"
-        className="relative block h-[38px] w-[34px] sm:h-[50px] sm:w-[44px]"
-      >
-        <Image
-          src="/Assets/Logo Utama.svg"
-          alt="Saka Jawa"
-          fill
-          sizes="64px"
-          loading="eager"
-          fetchPriority="high"
-          unoptimized
-          className="object-contain"
-        />
-      </Link>
-
-      <div className="flex min-w-0 flex-wrap items-center justify-start gap-x-6 gap-y-2 sm:gap-x-16">
-        {navRight.map((item) => (
-          <Link key={item.label} href={item.href} className="transition-opacity hover:opacity-75">
-            {item.label}
-          </Link>
-        ))}
-      </div>
-    </>
-  );
-
-  return (
+  }, [lastScrollY]);  return (
     <>
       {/* 1. Original Absolute Navbar (Stays at the top of the page in the Hero Section) */}
       <header className="absolute left-1/2 top-5 z-[100] w-full max-w-[1024px] -translate-x-1/2 px-5 sm:top-8 pointer-events-none">

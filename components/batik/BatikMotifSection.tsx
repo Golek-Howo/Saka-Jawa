@@ -29,7 +29,7 @@ export default function BatikMotifSection() {
   ];
 
   // Data galeri per kota
-  const galleryData: Record<string, typeof motifs[0] & { gallery: any[] }> = {
+  const galleryData: Record<string, typeof motifs[0] & { gallery: { id: string; src: string; title: string; description: string }[] }> = {
     solo: {
       ...motifs[0],
       gallery: [
