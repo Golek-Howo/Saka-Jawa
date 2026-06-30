@@ -1,44 +1,28 @@
 import Image from "next/image";
 
-export default function KulinerAboutSection() {
-  const points = [
-    {
-      desc: "Nasi Liwet khas Solo melambangkan penolakan bala dan rasa syukur yang mendalam kepada Sang Pencipta.",
-    },
-    {
-      desc: "Gudeg Jogja dimasak berjam-jam untuk menghasilkan rasa manis, mencerminkan kesabaran dan ketenangan.",
-    },
-    {
-      desc: "Tumpeng kuning sering disajikan saat perayaan sebagai simbol gunung suci yang menghubungkan manusia dan Tuhan.",
-    },
-  ];
+const rightDetails = [
+  "Gamelan dimainkan secara kolektif tanpa seorang pemimpin tunggal, melambangkan semangat gotong royong dan kesetaraan.",
+  "Diakui UNESCO sebagai Intangible Cultural Heritage of Humanity sejak tahun 2021 yang meneguhkan nilai luhurnya.",
+  "Setiap instrumen mewakili unsur kosmos Jawa: bumi, air, angin, dan api yang melebur menjadi harmoni sempurna.",
+];
 
+export default function GamelanAboutSection() {
   return (
     <section
       className="relative overflow-hidden px-6 py-24 md:px-12 lg:px-24 lg:py-32 bg-[#3e0b10]"
       id="tentang"
     >
-      {/* Decorative Flowers (Optional, similar to Batik) */}
+      {/* Decorative Flowers */}
       <div className="absolute top-0 left-0 w-56 h-56 md:w-80 md:h-80 pointer-events-none -translate-x-1/4 -translate-y-1/4 opacity-90">
-        <Image
-          src="/Assets/Bunga Kuning.svg"
-          alt="Bunga Kuning"
-          fill
-          className="object-contain"
-        />
+        <Image src="/Assets/Bunga Kuning.svg" alt="Bunga Kuning" fill className="object-contain" />
       </div>
       <div className="absolute top-0 right-0 w-56 h-56 md:w-96 md:h-96 pointer-events-none translate-x-1/4 -translate-y-1/4 opacity-90">
-        <Image
-          src="/Assets/Bunga Kuning2.svg"
-          alt="Bunga Kuning 2"
-          fill
-          className="object-contain"
-        />
+        <Image src="/Assets/Bunga Kuning2.svg" alt="Bunga Kuning 2" fill className="object-contain" />
       </div>
 
       <div className="mx-auto w-full max-w-[var(--container-lg)] relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 items-center">
-          
+
           {/* Left Column: Tahukah Kamu Card */}
           <div className="lg:col-span-6 flex justify-center lg:justify-start pt-10">
             <div className="relative w-full max-w-md">
@@ -48,8 +32,8 @@ export default function KulinerAboutSection() {
 
               {/* Card Container */}
               <div className="relative bg-[#fdfaf4] p-8 md:p-10 rounded-xl shadow-lg z-10 flex flex-col items-center sm:items-start sm:flex-row gap-6">
-                
-                {/* Boy Character — mirrored */}
+
+                {/* Person Character — mirrored */}
                 <div className="w-32 h-48 relative shrink-0">
                   <Image
                     src="/Assets/Sambut Tamu About.svg"
@@ -65,27 +49,26 @@ export default function KulinerAboutSection() {
                     Tahukah Kamu?
                   </h3>
                   <p className="text-sm leading-relaxed text-stone-700 font-medium">
-                    Selain cita rasa yang lezat, setiap komponen dalam sajian Tumpeng melambangkan hubungan vertikal manusia dengan Tuhan dan hubungan horizontal dengan sesama.
+                    Dalam satu perangkat gamelan, terdapat lebih dari 40 instrumen yang dimainkan secara bersama-sama tanpa seorang konduktor — mencerminkan nilai musyawarah dan kebersamaan.
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Aneka Kuliner Jawa */}
+          {/* Right Column: Gamelan Jawa */}
           <div className="lg:col-span-6 flex flex-col text-white">
             <h2 className="text-4xl md:text-[42px] font-bold text-[#FFC832] mb-6 text-center lg:text-right">
-              Aneka Kuliner Jawa
+              Gamelan Jawa
             </h2>
             <p className="text-base md:text-lg leading-relaxed text-gray-100 max-w-lg mb-12 text-center lg:text-right ml-auto">
-              Kuliner Jawa bukan sekadar hidangan pengisi perut, melainkan karya seni yang memadukan kekayaan rempah Nusantara dengan warisan leluhur yang tak lekang oleh waktu. Setiap resep adalah warisan budaya yang penuh filosofi.
+              Gamelan adalah ansambel musik Jawa yang telah mengisi jiwa peradaban Nusantara selama berabad-abad. Setiap dentingan dan gong bukan sekadar bunyi — ia adalah doa yang mengalir, menghubungkan manusia dengan alam dan sang pencipta.
             </p>
 
             {/* 3 Icons Row */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {points.map((p, index) => (
+              {rightDetails.map((desc, index) => (
                 <div key={index} className="flex flex-col items-center lg:items-end text-center lg:text-right gap-4">
-                  {/* Decorative Icon */}
                   <div className="h-10 w-12 relative opacity-90 flex justify-center lg:justify-end">
                     <svg viewBox="0 0 34 26" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full">
                       <path d="M0.5 13C0.5 13 8.5 0.5 17 0.5C25.5 0.5 33.5 13 33.5 13C33.5 13 25.5 25.5 17 25.5C8.5 25.5 0.5 13 0.5 13Z" stroke="#FFC832" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
@@ -94,7 +77,7 @@ export default function KulinerAboutSection() {
                     </svg>
                   </div>
                   <p className="text-xs text-gray-300 leading-relaxed font-medium">
-                    {p.desc}
+                    {desc}
                   </p>
                 </div>
               ))}
