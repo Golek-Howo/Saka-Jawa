@@ -115,7 +115,7 @@ export default function LandingHeroSection() {
   return (
     <section
       ref={heroRef}
-      className="relative isolate h-[100svh] min-h-[560px] overflow-hidden bg-[#d8a942] text-white"
+      className="relative isolate h-[100svh] min-h-[560px] overflow-hidden bg-gradient-to-b from-white to-[#F9F1E4] text-white"
       aria-labelledby="landing-hero-title"
     >
       <div className="absolute inset-0 z-20">
