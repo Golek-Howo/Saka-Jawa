@@ -4,11 +4,11 @@ import { useState } from "react";
 import Image from "next/image";
 
 const wayangCharacters = [
-  { id: 1, name: "Yudhistira", image: "/Assets/wayangHeroAsset.avif", desc: "Ksatria sulung Pandawa yang memiliki sifat sabar, jujur, dan tidak pernah berdusta." },
-  { id: 2, name: "Bima", image: "/Assets/wayangHeroAsset.avif", desc: "Pandawa kedua yang gagah berani, kuat, dan memiliki kuku sakti Pancanaka." },
-  { id: 3, name: "Arjuna", image: "/Assets/wayangHeroAsset.avif", desc: "Pandawa ketiga yang tampan, sakti mandraguna, dan sangat mahir memanah." },
-  { id: 4, name: "Nakula", image: "/Assets/wayangHeroAsset.avif", desc: "Pandawa keempat yang memiliki keahlian dalam bidang pertanian dan pengobatan." },
-  { id: 5, name: "Sadewa", image: "/Assets/wayangHeroAsset.avif", desc: "Pandawa kelima yang ahli dalam bidang perbintangan dan ilmu pengetahuan." },
+  { id: 1, name: "Yudhistira", image: "/Assets/Gambar Wayang/Yudhistira.jpg", desc: "Ksatria sulung Pandawa yang memiliki sifat sabar, jujur, dan tidak pernah berdusta." },
+  { id: 2, name: "Bima", image: "/Assets/Gambar Wayang/Bima.jpg", desc: "Pandawa kedua yang gagah berani, kuat, dan memiliki kuku sakti Pancanaka." },
+  { id: 3, name: "Arjuna", image: "/Assets/Gambar Wayang/Arjuna.jpg", desc: "Pandawa ketiga yang tampan, sakti mandraguna, dan sangat mahir memanah." },
+  { id: 4, name: "Nakula", image: "/Assets/Gambar Wayang/Nakula.jpg", desc: "Pandawa keempat yang memiliki keahlian dalam bidang pertanian dan pengobatan." },
+  { id: 5, name: "Sadewa", image: "/Assets/Gambar Wayang/Sadewa.jpg", desc: "Pandawa kelima yang ahli dalam bidang perbintangan dan ilmu pengetahuan." },
 ];
 
 export default function WayangRagamSection() {

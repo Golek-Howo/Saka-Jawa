@@ -7,7 +7,7 @@ import GamelanQuotesSection from "@/components/gamelan/GamelanQuotesSection";
 import GamelanCeritaSection from "@/components/gamelan/GamelanCeritaSection";
 import GamelanGallerySection from "@/components/gamelan/GamelanGallerySection";
 import GamelanInteractiveMapSection from "@/components/gamelan/GamelanInteractiveMapSection";
-import GamelanDewantaraQuoteSection from "@/components/gamelan/GamelanDewantaraQuoteSection";
+
 
 export const metadata: Metadata = topicPageMetadata.gamelan;
 
@@ -21,7 +21,6 @@ export default function GamelanPage() {
       <GamelanCeritaSection />
       <GamelanGallerySection />
       <GamelanInteractiveMapSection />
-      <GamelanDewantaraQuoteSection />
     </main>
   );
 }

@@ -82,7 +82,7 @@ export default function WayangAboutSection() {
                 </h3>
                 
                 <p className="text-[13px] md:text-[14px] font-medium text-gray-800 leading-relaxed relative z-10 mb-6">
-                  Dalam satu peringkat gamelan, terdapat lebih dari 40 instrumen yang dimainkan secara bersama-sama tanpa seorang konduktor.
+                  Satu dalang bisa memainkan lebih dari 60 tokoh wayang dalam semalam pertunjukan, lengkap dengan mengatur suara berbeda untuk tiap karakter, menyanyikan tembang, dan memberi aba-aba kepada para niyaga (penabuh gamelan) — semua dilakukan sendirian, semalam suntuk.
                 </p>
 
                 <div className="absolute bottom-0 right-0 w-16 h-8 md:w-24 md:h-12 translate-y-1/2 md:translate-y-4">

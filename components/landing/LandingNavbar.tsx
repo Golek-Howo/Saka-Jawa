@@ -6,12 +6,12 @@ import Link from "next/link";
 
 const navLeft = [
   { label: "Beranda", href: "/" },
-  { label: "Kekayaan Alam", href: "#kekayaan-alam" },
+  { label: "Kekayaan Budaya", href: "#kekayaan-budaya" },
 ];
 
 const navRight = [
   { label: "Permainan", href: "#permainan" },
-  { label: "Tentang Kami", href: "#tentang-kami" },
+  { label: "Tentang", href: "#tentang" },
 ];
 
 const NavContent = () => (

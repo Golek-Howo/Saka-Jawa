@@ -7,7 +7,6 @@ import KulinerQuotesSection from "@/components/kuliner/KulinerQuotesSection";
 import KulinerCeritaSection from "@/components/kuliner/KulinerCeritaSection";
 import KulinerGallerySection from "@/components/kuliner/KulinerGallerySection";
 import KulinerInteractiveMapSection from "@/components/kuliner/KulinerInteractiveMapSection";
-import KulinerDewantaraQuoteSection from "@/components/kuliner/KulinerDewantaraQuoteSection";
 
 export const metadata: Metadata = topicPageMetadata.kuliner;
 
@@ -21,7 +20,6 @@ export default function KulinerPage() {
       <KulinerCeritaSection />
       <KulinerGallerySection />
       <KulinerInteractiveMapSection />
-      <KulinerDewantaraQuoteSection />
     </main>
   );
 }

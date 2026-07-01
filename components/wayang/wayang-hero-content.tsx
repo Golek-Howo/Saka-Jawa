@@ -15,7 +15,7 @@ export const wayangHeroContent: HeroContent = {
     { id: "btn-jelajahi-tokoh", label: "Jelajahi Tokoh", variant: "secondary", href: "#ragam" },
   ],
   image: {
-    src: "/Assets/wayangHeroAsset.avif",
+    src: "/Assets/Gambar Wayang/heroWayang.jpg",
     alt: "Seni Wayang Kulit Jawa",
   },
   dots: {

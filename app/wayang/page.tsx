@@ -6,7 +6,6 @@ import WayangQuotesSection from "@/components/wayang/WayangQuotesSection";
 import WayangCeritaSection from "@/components/wayang/WayangCeritaSection";
 import WayangGallerySection from "@/components/wayang/WayangGallerySection";
 import WayangInteractiveMapSection from "@/components/wayang/WayangInteractiveMapSection";
-import WayangDewantaraQuoteSection from "@/components/wayang/WayangDewantaraQuoteSection";
 import { topicPageMetadata } from "@/data/pages";
 
 export const metadata: Metadata = topicPageMetadata.wayang;
@@ -21,7 +20,6 @@ export default function WayangPage() {
       <WayangCeritaSection />
       <WayangGallerySection />
       <WayangInteractiveMapSection />
-      <WayangDewantaraQuoteSection />
     </main>
   );
 }
