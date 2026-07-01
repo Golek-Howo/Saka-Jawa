@@ -1,5 +1,6 @@
 "use client";
 
+// Menggunakan Image dari Next.js secara benar
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -10,8 +11,10 @@ function useTypewriter(text: string, speed = 30, trigger = true) {
 
   useEffect(() => {
     if (!trigger) return;
+    
     setDisplayed("");
     setDone(false);
+    
     let i = 0;
     const id = setInterval(() => {
       i++;
@@ -21,6 +24,7 @@ function useTypewriter(text: string, speed = 30, trigger = true) {
         clearInterval(id);
       }
     }, speed);
+
     return () => clearInterval(id);
   }, [text, speed, trigger]);
 
@@ -34,6 +38,7 @@ export default function LandingChatbotSection() {
   useEffect(() => {
     const el = cardRef.current;
     if (!el) return;
+    
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -69,7 +74,7 @@ export default function LandingChatbotSection() {
         <div className="w-full md:w-1/2 flex justify-center md:justify-end">
           <div className="relative w-full max-w-[450px] aspect-square">
             <Image
-              src="/Assets/maskotChatbot.svg"
+              src="/Assets/maskotChatbot.png"
               alt="Saka Mascot"
               fill
               className="object-contain"

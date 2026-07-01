@@ -116,7 +116,12 @@ export default function LandingImportanceSection() {
   ];
 
   return (
-    <section className="bg-[#3A141A] py-24 px-6 md:px-12 lg:px-24 w-full">
+    <section
+      className="py-24 px-6 md:px-12 lg:px-24 w-full"
+      style={{
+        background: "radial-gradient(ellipse at 50% 50%, #5B0917 0%, #2D0F12 94%)",
+      }}
+    >
       <div className="max-w-[1200px] mx-auto flex flex-col items-center">
         <h2 className="text-3xl md:text-[40px] font-bold text-white mb-4 text-center">
           Mengapa Warisan Budaya Penting?
