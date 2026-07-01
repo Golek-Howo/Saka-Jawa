@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 export interface HeroAction {
   id: string;
@@ -17,11 +20,15 @@ export interface HeroContent {
   subheadline: string;
   description: string;
   actions: HeroAction[];
-  image: {
+  image?: {
     src: string;
     alt: string;
   };
-  dots: {
+  images?: {
+    src: string;
+    alt: string;
+  }[];
+  dots?: {
     count: number;
     activeIndex: number;
   };
@@ -35,7 +42,21 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ content }: HeroSectionProps) {
-  const { badge, headline, subheadline, description, actions, image, dots, bottomWaveSrc } = content;
+  const { badge, headline, subheadline, description, actions, image, images, dots, bottomWaveSrc } = content;
+
+  const [currentIndex, setCurrentIndex] = useState(dots?.activeIndex || 0);
+
+  useEffect(() => {
+    if (!images || images.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [images]);
+
+  const currentImage = images ? images[currentIndex] : image;
+  const dotCount = images ? images.length : (dots?.count || 0);
+  const activeDotIndex = images ? currentIndex : (dots?.activeIndex || 0);
 
   return (
     <section className="relative w-full overflow-hidden bg-white pt-8 pb-20 lg:py-24">
@@ -62,25 +83,30 @@ export default function HeroSection({ content }: HeroSectionProps) {
                   : 'rounded-r-full rounded-l-none'
               }`}
             >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                className="object-cover"
-                priority
-              />
+              {currentImage && (
+                <Image
+                  src={currentImage.src}
+                  alt={currentImage.alt}
+                  fill
+                  className="object-cover transition-opacity duration-500"
+                  priority
+                />
+              )}
               <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-gold/5 via-transparent via-60% to-maroon/3" />
             </div>
           )}
           
           {/* Pagination Dots: Centered under the image */}
           <div className="flex w-[92%] sm:w-[90%] md:w-[85%] lg:w-[95%] xl:w-[92%] justify-center items-center gap-2">
-            {Array.from({ length: dots.count }, (_, index) => {
-              const isActive = index === dots.activeIndex;
+            {Array.from({ length: dotCount }, (_, index) => {
+              const isActive = index === activeDotIndex;
 
               return (
                 <span
                   key={index}
+                  onClick={() => {
+                    if (images) setCurrentIndex(index);
+                  }}
                   className={
                     isActive
                       ? "h-2.5 w-7 cursor-pointer rounded-[5px] bg-[#FFC832] opacity-100 transition-all duration-300"

@@ -14,12 +14,10 @@ export const batikHeroContent: HeroContent = {
     { id: "btn-tentang-batik", label: "Tentang Batik", variant: "primary", href: "#batik-about" },
     { id: "btn-jelajahi-motif", label: "Jelajahi Motif", variant: "secondary", href: "#batik-motif" },
   ],
-  image: {
-    src: "/Assets/Batik Section Sejarawan.svg",
-    alt: "Ilustrasi Seni Lukisan Kain Batik Jawa",
-  },
-  dots: {
-    count: 5,
-    activeIndex: 1,
-  },
+  images: [
+    { src: "/Assets/Batik Section Sejarawan.svg", alt: "Ilustrasi Seni Lukisan Kain Batik Jawa" },
+    { src: "/Assets/Gambar Batik/Batik Solo/Solo 1.avif", alt: "Batik Solo 1" },
+    { src: "/Assets/Gambar Batik/Batik Jogja/Jogja 1.avif", alt: "Batik Jogja 1" },
+    { src: "/Assets/Gambar Batik/Batik Pekalongan/Pekalongan 1.avif", alt: "Batik Pekalongan 1" },
+  ],
 };
