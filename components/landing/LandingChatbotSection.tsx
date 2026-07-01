@@ -25,7 +25,7 @@ export default function LandingChatbotSection() {
               Sugeng Rawuh!
             </h2>
             <p className="text-gray-800 text-lg md:text-xl leading-relaxed">
-              Kenalkan, aku Saka pemandumu! Tugas-ku adalah menjaga gerbang ilmu SakaJawa agar tidak lekang oleh waktu. Penasaran dengan makna di balik budaya Jawa?
+              Kenalkan, aku Suro pemandumu! Tugas-ku adalah menjaga gerbang ilmu SakaJawa agar tidak lekang oleh waktu. Penasaran dengan makna di balik budaya Jawa?
             </p>
             <div className="flex justify-end mt-4 md:mt-8">
               <Link

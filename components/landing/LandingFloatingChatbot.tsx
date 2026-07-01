@@ -14,7 +14,7 @@ export default function LandingFloatingChatbot() {
             Tanya Kepada
           </span>
           <span className="block text-[1.3rem] sm:text-[1.6rem] leading-none font-black text-black tracking-wide mt-0.5">
-            ABDI DALEM
+            SURO
           </span>
         </div>
 
