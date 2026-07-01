@@ -136,7 +136,7 @@
           label: "Siapa yang membuat website ini?",
           question: "Siapa yang membuat website ini?",
           answer:
-            "Website Saka Jawa dibuat oleh Tim Golek Howo yang terdiri dari 3 anak muda yaitu Hilmi Azzam, Byatara Ade, dan Donald Terrifortino. Nama \"Golek Howo\" berasal dari bahasa Jawa yang berarti \"mencari asal-usul\". Kami ingin mengajak generasi muda untuk mengenal dan mencintai kekayaan budaya Jawa melalui media digital yang menarik dan interaktif! 💛",
+            "Website Saka Jawa dibuat oleh Tim Golek Howo yang terdiri dari 3 anak muda yaitu Hilmi Azzam, Byatara Ade, dan Donald Terrifortino. Nama \"Golek Howo\" berasal dari bahasa Jawa yang berarti \"mencari suasana\". Kami ingin mengajak generasi muda untuk mengenal dan mencintai kekayaan budaya Jawa melalui media digital yang menarik dan interaktif! 💛",
         },
       ],
     },
