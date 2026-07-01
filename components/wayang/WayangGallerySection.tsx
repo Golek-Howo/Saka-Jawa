@@ -5,9 +5,9 @@ import Image from "next/image";
 import GalleryModal from "@/components/shared/GalleryModal";
 
 const wayangGallery = [
-  { id: 1, title: "Silsilah Pandawa & Kurawa", image: "/Assets/Gambar Wayang/silsilah wayang.jpg" },
-  { id: 2, title: "Pewayangan", image: "/Assets/Gambar Wayang/wayang1.jpg" },
-  { id: 3, title: "Wayang-wayang", image: "/Assets/Gambar Wayang/wayang2.jpg" },
+  { id: 1, title: "Silsilah Pandawa & Kurawa", image: "/Assets/Gambar Wayang/silsilah wayang.webp" },
+  { id: 2, title: "Pewayangan", image: "/Assets/Gambar Wayang/Wayang1.webp" },
+  { id: 3, title: "Wayang-wayang", image: "/Assets/Gambar Wayang/wayang2.webp" },
 ];
 
 export default function WayangGallerySection() {
@@ -46,14 +46,17 @@ export default function WayangGallerySection() {
         {/* Cards Grid */}
         <div className="grid gap-6 sm:grid-cols-3">
           {wayangGallery.map((gal) => (
-            <div key={gal.id} className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-lg border border-stone-200">
+            <div
+              key={gal.id}
+              className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-lg border border-stone-200 bg-gradient-to-br from-[#4e0b11] to-[#2a0608]"
+            >
               <Image
                 src={gal.image}
                 alt={gal.title}
                 fill
-                className="object-cover transition-transform duration-500 hover:scale-105"
+                className="object-cover object-top transition-transform duration-500 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6 pointer-events-none">
                 <h4 className="font-['League_Spartan'] text-xl font-bold text-white">
                   {gal.title}
                 </h4>
@@ -61,7 +64,6 @@ export default function WayangGallerySection() {
             </div>
           ))}
         </div>
-
       </div>
 
       <GalleryModal

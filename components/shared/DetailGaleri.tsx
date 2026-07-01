@@ -19,14 +19,26 @@ interface DetailGaleriProps {
   onClose?: () => void;
 }
 
-const Frame = ({ image, className, onClick }: { image?: GalleryImage, className?: string, onClick?: () => void }) => (
+const Frame = ({ image, className, onClick, objectPosition = "top" }: { 
+  image?: GalleryImage, 
+  className?: string, 
+  onClick?: () => void,
+  objectPosition?: string 
+}) => (
   <div 
     className={`relative bg-[#E0E0E0] p-2 md:p-3 rounded-2xl md:rounded-3xl shadow-2xl flex flex-col items-center group ${onClick ? 'cursor-pointer hover:bg-white transition-colors duration-300' : ''} ${className}`}
     onClick={onClick}
   >
     <div className="w-full flex-1 bg-gray-400 rounded-xl md:rounded-2xl overflow-hidden relative">
       {image ? (
-        <Image src={image.src} alt={image.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" unoptimized />
+        <Image 
+          src={image.src} 
+          alt={image.title} 
+          fill 
+          className="object-cover transition-transform duration-700 group-hover:scale-105" 
+          style={{ objectPosition }}
+          unoptimized 
+        />
       ) : (
         <div className="w-full h-full bg-gray-400" />
       )}
