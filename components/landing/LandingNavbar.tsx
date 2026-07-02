@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useLenis } from "lenis/react";
 
 const navLeft = [
   { label: "Beranda", href: "/" },
-  { label: "Kekayaan Budaya", href: "#kekayaan-budaya" },
 ];
 
 const navRight = [
@@ -14,7 +14,7 @@ const navRight = [
   { label: "Tentang Kami", href: "/tentang-kami" },
 ];
 
-const NavContent = () => (
+const NavContent = ({ onKekayaanBudayaClick }: { onKekayaanBudayaClick: () => void }) => (
   <>
     <div className="flex min-w-0 flex-wrap items-center justify-end gap-x-6 gap-y-2 sm:gap-x-16">
       {navLeft.map((item) => (
@@ -22,6 +22,12 @@ const NavContent = () => (
           {item.label}
         </Link>
       ))}
+      <button
+        onClick={onKekayaanBudayaClick}
+        className="transition-opacity hover:opacity-75 cursor-pointer bg-transparent border-none p-0 font-inherit text-inherit"
+      >
+        Kekayaan Budaya
+      </button>
     </div>
 
     <Link
@@ -55,11 +61,21 @@ export default function LandingNavbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const lenis = useLenis();
+
+  const handleScrollToExplore = useCallback(() => {
+    const target = document.getElementById("explore-section");
+    if (target && lenis) {
+      lenis.scrollTo(target, { offset: -80, duration: 1.5 });
+    } else if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [lenis]);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       // Threshold to show the glass navbar (after hero section)
       const heroHeight = window.innerHeight;
       if (currentScrollY > heroHeight - 80) {
@@ -80,19 +96,21 @@ export default function LandingNavbar() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);  return (
+  }, [lastScrollY]);
+
+  return (
     <>
       <header className="absolute left-1/2 top-5 z-[100] w-full max-w-[1024px] -translate-x-1/2 px-5 sm:top-8 pointer-events-none">
         <nav
           className="grid grid-cols-[1fr_auto_1fr] items-center gap-8 sm:gap-16 text-[0.8rem] font-bold text-black sm:text-base pointer-events-auto"
           aria-label="Navigasi utama statis"
         >
-          <NavContent />
+          <NavContent onKekayaanBudayaClick={handleScrollToExplore} />
         </nav>
       </header>
 
       {/* 2. Glass Navbar (Fixed, shows after scrolling down past hero) */}
-      <header 
+      <header
         className={`fixed left-1/2 top-6 z-[100] w-fit -translate-x-1/2 transition-all duration-500 pointer-events-none ${
           isScrolled && isVisible ? "translate-y-0 opacity-100" : "-translate-y-[150%] opacity-0"
         }`}
@@ -107,6 +125,12 @@ export default function LandingNavbar() {
                 {item.label}
               </Link>
             ))}
+            <button
+              onClick={handleScrollToExplore}
+              className="transition-opacity hover:opacity-75 whitespace-nowrap cursor-pointer bg-transparent border-none p-0 font-inherit text-inherit"
+            >
+              Kekayaan Budaya
+            </button>
           </div>
 
           <Link

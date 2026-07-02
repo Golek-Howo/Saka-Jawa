@@ -35,6 +35,14 @@ export default function TentangKamiHeroSection() {
           className="object-contain"
         />
       </div>
+      <div className="absolute bottom-0 right-0 w-40 h-40 md:w-64 md:h-64 pointer-events-none translate-x-1/4 translate-y-1/4 opacity-50 rotate-180">
+        <Image
+          src="/Assets/Bunga Kuning.svg"
+          alt=""
+          fill
+          className="object-contain"
+        />
+      </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-[var(--container-md)] mx-auto">

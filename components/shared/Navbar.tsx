@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 const navLeft = [
   { label: "Beranda", href: "/" },
-  { label: "Kekayaan Budaya", href: "/#kekayaan-budaya" },
+  { label: "Kekayaan Budaya", href: "/#explore-section" },
 ];
 
 const navRight = [
