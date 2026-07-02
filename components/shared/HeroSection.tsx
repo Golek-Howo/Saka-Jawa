@@ -77,7 +77,7 @@ export default function HeroSection({ content }: HeroSectionProps) {
             content.customImageRender()
           ) : (
             <div 
-              className={`relative w-[92%] sm:w-[90%] md:w-[85%] lg:w-[95%] xl:w-[92%] h-[240px] sm:h-[320px] md:h-[380px] lg:h-[420px] xl:h-[460px] overflow-hidden shadow-[0_12px_40px_rgba(78,11,17,0.08),0_4px_12px_rgba(0,0,0,0.04)] ${
+              className={`relative shrink-0 w-[92%] sm:w-[90%] md:w-[85%] lg:w-[95%] xl:w-[92%] h-[240px] sm:h-[320px] md:h-[380px] lg:h-[420px] xl:h-[460px] min-h-[240px] sm:min-h-[320px] md:min-h-[380px] lg:min-h-[420px] xl:min-h-[460px] overflow-hidden shadow-[0_12px_40px_rgba(78,11,17,0.08),0_4px_12px_rgba(0,0,0,0.04)] ${
                 content.imagePosition === 'right' 
                   ? 'rounded-l-full rounded-r-none' 
                   : 'rounded-r-full rounded-l-none'

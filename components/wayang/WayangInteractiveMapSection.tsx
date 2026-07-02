@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function WayangInteractiveMapSection() {
   return (
-    <section className="bg-[#f9f1e4] py-16 px-6 md:px-12 lg:px-24">
+    <section className="bg-white py-16 px-6 md:px-12 lg:px-24">
       <div className="mx-auto w-full max-w-[var(--container-lg)] flex flex-col gap-8">
         {/* Header Row */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">

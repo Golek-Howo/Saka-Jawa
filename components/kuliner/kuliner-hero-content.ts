@@ -16,25 +16,25 @@ export const kulinerHeroContent: HeroContent = {
   ],
   images: [
     {
-      src: "/Assets/Gambar Kuliner/go berkat.avif",
-      alt: "Sego Berkat",
+      src: "/assets/Gambar kuliner/Jawa Timur/lontong balap.avif",
+      alt: "Lontong Balap",
     },
     {
-      src: "/Assets/Gambar Kuliner/go liwet.avif",
-      alt: "Nasi Liwet",
+      src: "/assets/Gambar kuliner/Jawa Tengah/magelangan.avif",
+      alt: "Nasi Goreng Magelangan",
     },
     {
-      src: "/Assets/Gambar Kuliner/rawon.avif",
-      alt: "Rawon",
-    },
-    {
-      src: "/Assets/Gambar Kuliner/tahu kupat.avif",
+      src: "/assets/Gambar kuliner/Jawa Barat/tahu kupat.avif",
       alt: "Tahu Kupat",
+    },
+    {
+      src: "/assets/Gambar kuliner/Jawa Barat/seblak-creamy-mie-bakso.avif",
+      alt: "Seblak",
     },
   ],
   dots: {
     count: 4,
-    activeIndex: 1,
+    activeIndex: 0,
   },
   imagePosition: "right",
 };
