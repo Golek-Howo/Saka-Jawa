@@ -17,7 +17,7 @@ export default function LandingCTASection() {
   };
 
   return (
-    <section className="w-full max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8 -mt-8 lg:-mt-12 relative z-20">
+    <section className="w-full max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-16 -mt-8 lg:-mt-12 relative z-20">
       <div className="relative w-full bg-gradient-to-r from-[#4E0B11] to-[#2D0F12] rounded-[32px] overflow-hidden flex flex-col md:flex-row min-h-[280px] lg:min-h-[320px] shadow-[0_12px_24px_-8px_rgba(0,0,0,0.3)]">
         {/* Decorative Assets */}
         <Image
