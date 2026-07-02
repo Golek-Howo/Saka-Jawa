@@ -68,7 +68,7 @@ export default function WayangCeritaSection() {
                         src={story.image}
                         alt={story.title}
                         fill
-                        className="object-cover"
+                        className="object-cover object-top"
                       />
                     </div>
                     {/* Title */}
@@ -81,10 +81,7 @@ export default function WayangCeritaSection() {
                     </p>
                   </div>
                   {/* Actions inside card */}
-                  <div className="mt-4 pt-4 border-t border-stone-200 flex items-center justify-between">
-                    <span className="font-['League_Spartan'] text-sm font-semibold text-[#4e0b11]">
-                      Lihat Ringkasan
-                    </span>
+                  <div className="mt-4 pt-4 border-t border-stone-200 flex items-center justify-end">
                     <button 
                       onClick={() => story.videoUrl ? setActiveVideo(story.videoUrl) : null}
                       className="w-8 h-8 rounded-full bg-[#4e0b11] text-white flex items-center justify-center transition-transform hover:scale-110"
@@ -104,7 +101,7 @@ export default function WayangCeritaSection() {
 
       {/* Video Modal */}
       {activeVideo && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 sm:p-6" onClick={() => setActiveVideo(null)}>
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 sm:p-6" onClick={() => setActiveVideo(null)}>
           <div className="relative w-full max-w-4xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl" onClick={(e) => e.stopPropagation()}>
             <button 
               onClick={() => setActiveVideo(null)}
