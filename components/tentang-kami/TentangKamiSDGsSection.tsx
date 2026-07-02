@@ -1,10 +1,10 @@
 const sdgs = [
   {
-    number: "4",
+    number: "8",
     color: "#C01D2D",
-    label: "Pendidikan Berkualitas",
+    label: "Pekerjaan Layak & Pertumbuhan Ekonomi",
     description:
-      "Saka Jawa menyediakan konten edukatif berkualitas tentang budaya Jawa yang dapat diakses secara gratis oleh seluruh lapisan masyarakat — mendukung pendidikan inklusif dan pembelajaran sepanjang hayat.",
+      "Mendukung penghidupan perajin batik, dalang, dan pengrajin tradisional dengan membuka akses pasar dan apresiasi yang lebih luas terhadap karya mereka.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
@@ -26,11 +26,11 @@ const sdgs = [
     ),
   },
   {
-    number: "17",
+    number: "15",
     color: "#19486A",
-    label: "Kemitraan untuk Mencapai Tujuan",
+    label: "Ekosistem daratan",
     description:
-      "Saka Jawa membangun kolaborasi lintas komunitas — antara seniman, akademisi, pengembang, dan generasi muda — untuk bersama-sama mewujudkan visi pelestarian budaya yang berkelanjutan.",
+      "Turut menjaga pengetahuan tradisional tentang bahan alami, seperti pewarna batik dari tumbuhan, yang selama ini menopang kelestarian lingkungan sekitar.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -59,9 +59,8 @@ export default function TentangKamiSDGsSection() {
             Kontribusi terhadap SDGs
           </h2>
           <p className="text-[#4A332B] text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-            Saka Jawa tidak hanya berbicara tentang budaya — kami juga
-            berkontribusi nyata pada pencapaian Tujuan Pembangunan Berkelanjutan
-            (Sustainable Development Goals) PBB.
+           Saka Jawa mendukung tiga tujuan pembangunan berkelanjutan melalui pelestarian budaya, penghidupan perajin, 
+           dan pengetahuan tradisional yang selaras dengan alam.
           </p>
         </div>
 

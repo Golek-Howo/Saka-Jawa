@@ -1,27 +1,21 @@
 const teamMembers = [
   {
-    name: "Farhan Ardiansyah",
-    role: "Ketua Tim & Frontend Developer",
-    initials: "FA",
+    name: "Donald Terrifortino",
+    role: "FE Designer",
+    initials: "DT",
     bgColor: "#4E0B11",
   },
   {
-    name: "Siti Nurhaliza",
-    role: "UI/UX Designer",
-    initials: "SN",
+    name: "Byatara Ade Wisnubrata",
+    role: "FE Designer",
+    initials: "BAW",
     bgColor: "#5B0917",
   },
   {
-    name: "Rizky Pratama",
-    role: "Backend Developer",
-    initials: "RP",
+    name: "Mohamad Hilmi Azzam",
+    role: "FE Designer",
+    initials: "MHA",
     bgColor: "#6B1520",
-  },
-  {
-    name: "Dewi Anggraini",
-    role: "Content & Research",
-    initials: "DA",
-    bgColor: "#3A0810",
   },
 ];
 
@@ -41,13 +35,13 @@ export default function TentangKamiTimSection() {
             Tim Golek Howo
           </h2>
           <p className="text-[#4A332B] text-base leading-relaxed max-w-xl mx-auto">
-            Empat orang dengan satu visi — mendekatkan generasi muda pada
+            Tiga orang dengan satu visi — mendekatkan generasi muda pada
             warisan budaya Jawa melalui teknologi.
           </p>
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
           {teamMembers.map((member) => (
             <div
               key={member.name}
